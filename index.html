@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Вам письмо 2027</title>
+<meta name="description" content="Тсс, это письмо для всей команды. Вскроем 27 октября.">
+<meta property="og:title" content="Вам письмо">
+<meta property="og:description" content="Тсс, это письмо для всей команды. Вскроем 27 октября.">
+<meta name="theme-color" content="#D42A20">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Caveat:wght@600;700&family=Golos+Text:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <section class="center" id="s1">
+    <svg class="spark" style="top:4%;left:2%;width:44px;height:44px" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1C13 8 16 11 23 12C16 13 13 16 12 23C11 16 8 13 1 12C8 11 11 8 12 1Z"/></svg>
+    <svg class="spark" style="top:12%;left:12%;width:22px;height:22px" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1C13 8 16 11 23 12C16 13 13 16 12 23C11 16 8 13 1 12C8 11 11 8 12 1Z"/></svg>
+    <svg class="spark" style="bottom:22%;right:0;width:40px;height:40px" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1C13 8 16 11 23 12C16 13 13 16 12 23C11 16 8 13 1 12C8 11 11 8 12 1Z"/></svg>
+
+    <span class="pill">Для всей команды</span>
+    <h1>Вам письмо</h1>
+
+    <div class="env" id="env">
+      <div class="back"></div>
+      <div class="inner" aria-hidden="true"></div>
+      <svg class="layer" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 200L0 70L130 140Q150 151 170 140L300 70L300 200Z" fill="#F7ECDC"/>
+        <path d="M2 198L128 112M298 198L172 112" stroke="#E2CFB2" stroke-width="1.6" fill="none"/>
+      </svg>
+      <div class="flap" aria-hidden="true"><svg viewBox="0 0 300 128" preserveAspectRatio="none"><path d="M0 0H300L166 122Q150 132 134 122Z" fill="#EFE1CC" stroke="#E2CFB2" stroke-width="1.5"/></svg></div>
+      <span class="to" aria-hidden="true">кому: каждому из нас</span>
+      <button class="seal" id="seal" type="button" aria-describedby="tease">2027</button>
+    </div>
+    <p class="tease" id="tease" aria-live="polite"></p>
+
+    <p class="hand" id="when">вскроем совсем скоро</p>
+    <div class="count" id="count" hidden>
+      <div><b id="cd-d">0</b><span>дней</span></div>
+      <div><b id="cd-h">0</b><span>часов</span></div>
+      <div><b id="cd-m">0</b><span>минут</span></div>
+    </div>
+    <span class="cue" id="cue">Листай вниз, нужна ваша помощь ↓</span>
+  </section>
+
+  <section id="s2">
+    <p class="hand" style="transform-origin:left">пока оно запечатано…</p>
+    <h2>Нужны ваши самые смешные фото</h2>
+    <p class="lead">С прошлых корпоративов, тимбилдингов и офисных будней. Лучшие кадры окажутся в одном секретном месте. Какие именно, увидите, когда вскроем письмо.</p>
+    <div class="facts">
+      <div class="fact"><span>До какого числа</span><b id="deadline">23 октября</b></div>
+      <div class="fact"><span>Куда</span><b>WhatsApp</b></div>
+    </div>
+
+    <div class="opened" aria-hidden="true">
+      <div class="lid"><svg viewBox="0 0 560 96" preserveAspectRatio="none" width="100%" height="100%"><path d="M0 96L280 4L560 96Z" fill="#E6D4BB"/></svg></div>
+      <div class="back"></div>
+      <div class="pile">
+        <div class="pol" style="left:6%;top:4%;transform:rotate(-11deg)"><div class="ph" style="background:#5B4440"></div></div>
+        <div class="pol" style="left:35%;top:0;transform:rotate(3deg)"><div class="ph">?</div></div>
+        <div class="pol" style="left:63%;top:6%;transform:rotate(10deg)"><div class="ph" style="background:#6E4A3E"></div></div>
+      </div>
+      <div class="front"><svg viewBox="0 0 560 216" preserveAspectRatio="none" width="100%" height="100%"><path d="M0 0L280 120L560 0V216H0Z" fill="#F7ECDC"/><path d="M0 216L230 92M560 216L330 92" stroke="#E2CFB2" stroke-width="3"/></svg></div>
+      <span class="badge">тут будет и твоё</span>
+    </div>
+
+    <div class="panel">
+      <h3>Положить фото в конверт</h3>
+      <p class="muted">Нажми на кнопку, откроется чат в WhatsApp. Прикрепи фото и, если хочешь, подпиши, что на них происходит.</p>
+      <a class="btn-link" id="wa" href="#" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-3.6A8 8 0 1 1 8 19z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 9.5c.3 1.8 1.7 3.6 3.6 4.4l1.2-1 1.7.8c-.3 1.1-1.2 1.6-2.2 1.4C10.6 14.6 8.6 12.5 8 10c-.2-1 .4-1.9 1.4-2.1l.8 1.7z" fill="currentColor"/></svg>
+        Отправить фото в WhatsApp
+      </a>
+      <p class="muted">Не открывается? Напиши вручную на номер <span class="phone" id="phone">8 778 611 59 10</span></p>
+    </div>
+  </section>
+</main>
+
+<div class="reveal" id="reveal" role="dialog" aria-label="Письмо вскрыто">
+  <div class="rv">
+    <a class="banner" id="banner-link" target="_blank" rel="noopener">
+      <img src="banner.jpg" alt="Кажется, что-то намечается… Новый год всё ближе, и мы кое-что задумали. А ты с нами? Голосуй в опросе" width="1086" height="1448">
+    </a>
+    <a class="cta" id="sheet-cta" target="_blank" rel="noopener">Отметиться: иду / не иду</a>
+    <p class="note">Откроется Google-таблица, где можно отметиться.</p>
+    <button class="ghost" id="close" type="button">Закрыть и запечатать обратно</button>
+  </div>
+</div>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<script>
+// ▼ Настройки
+const REVEAL_AT = '2026-10-27T10:00:00+05:00';   // когда письмо можно вскрыть
+const WA_NUMBER = '77786115910';                  // номер WhatsApp в международном формате, без +
+const WA_TEXT = 'Привет! Скидываю фото для новогоднего письма 📸';
+const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1_9_HBLAqbRLslua0Umo8nNQ_w0v2KICPDftwHR-ue5Q/edit?gid=852570194#gid=852570194';
+
+(function(){
+  const $ = id => document.getElementById(id);
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveal = new Date(REVEAL_AT);
+  const fmtDay = reveal.toLocaleDateString('ru-RU', {day:'numeric', month:'long'});
+  // Подсмотреть вскрытие заранее: открыть сайт с #preview в конце адреса
+  const preview = location.hash === '#preview';
+  const isRevealed = () => preview || Date.now() >= reveal;
+
+  $('wa').href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(WA_TEXT);
+  $('sheet-cta').href = SHEET_URL;
+  $('banner-link').href = SHEET_URL;
+
+  function plural(n,a,b,c){ const m10=n%10, m100=n%100; if(m10===1&&m100!==11) return a; if(m10>=2&&m10<=4&&(m100<12||m100>14)) return b; return c; }
+
+  function update(){
+    if (isRevealed()){
+      $('env').classList.add('ready');
+      $('when').textContent = 'пора! нажми на печать';
+      $('count').hidden = true;
+      $('s2').hidden = true;
+      $('cue').hidden = true;
+      $('seal').setAttribute('aria-label', 'Открыть письмо');
+      return;
+    }
+    const ms = reveal - Date.now();
+    const d = Math.floor(ms/864e5), h = Math.floor(ms%864e5/36e5), m = Math.floor(ms%36e5/6e4);
+    $('when').textContent = 'вскроем через ' + d + ' ' + plural(d,'день','дня','дней');
+    $('count').hidden = false;
+    $('cd-d').textContent = d; $('cd-h').textContent = h; $('cd-m').textContent = m;
+    $('seal').setAttribute('aria-label', 'Печать письма. Письмо пока запечатано');
+  }
+  update(); setInterval(update, 30000);
+
+  const teases = ['Ещё рано! Письмо вскроем ' + fmtDay + '.', 'Печать держится крепко.', 'Тсс. Терпение, коллега.', 'Подсказка: листай вниз, там можно помочь.'];
+  let ti = 0, tt, lastFocus = null;
+
+  function openScene(){
+    const env = $('env');
+    if (env.classList.contains('open')) return;
+    lastFocus = document.activeElement;
+    env.classList.add('open');
+    setTimeout(function(){
+      $('reveal').classList.add('show');
+      burst();
+      setTimeout(() => $('sheet-cta').focus({preventScroll:true}), reduce ? 0 : 900);
+    }, reduce ? 50 : 1300);
+  }
+  function closeScene(){
+    $('reveal').classList.remove('show');
+    $('env').classList.remove('open');
+    if (lastFocus && lastFocus.focus) lastFocus.focus({preventScroll:true});
+  }
+  $('close').addEventListener('click', closeScene);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('reveal').classList.contains('show')) closeScene(); });
+
+  $('seal').addEventListener('click', function(){
+    if (isRevealed()) { openScene(); return; }
+    this.classList.remove('shake'); void this.offsetWidth; this.classList.add('shake');
+    const t = $('tease'); t.textContent = teases[ti++ % teases.length]; t.classList.add('on');
+    clearTimeout(tt); tt = setTimeout(() => t.classList.remove('on'), 3200);
+  });
+
+  // Искры
+  const cv = $('fx'), ctx = cv.getContext('2d');
+  let parts = [], raf = 0;
+  function size(){ const d = window.devicePixelRatio||1; cv.width = innerWidth*d; cv.height = innerHeight*d; ctx.setTransform(d,0,0,d,0,0); }
+  addEventListener('resize', size); size();
+  const colors = ['#F7ECDC','#FFD27A','#1E1414','#ffffff'];
+  function burst(){
+    if (reduce) return;
+    for (let i=0;i<110;i++){
+      const a = Math.random()*Math.PI*2, s = 4+Math.random()*8;
+      parts.push({x:innerWidth/2,y:innerHeight*0.45,vx:Math.cos(a)*s,vy:Math.sin(a)*s-5,r:3+Math.random()*5,rot:Math.random()*6,vr:(Math.random()-.5)*.3,c:colors[i%4],life:1,star:i%3===0});
+    }
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  function star(r){ ctx.beginPath(); for(let i=0;i<8;i++){ const rr = i%2?r*.35:r, a = i*Math.PI/4; ctx.lineTo(Math.cos(a)*rr, Math.sin(a)*rr);} ctx.closePath(); ctx.fill(); }
+  function tick(){
+    ctx.clearRect(0,0,innerWidth,innerHeight);
+    parts.forEach(p => { p.vy+=.22; p.vx*=.99; p.x+=p.vx; p.y+=p.vy; p.rot+=p.vr; p.life-=.008;
+      ctx.save(); ctx.globalAlpha=Math.max(p.life,0); ctx.translate(p.x,p.y); ctx.rotate(p.rot); ctx.fillStyle=p.c;
+      if (p.star) star(p.r*1.6); else ctx.fillRect(-p.r,-p.r/2,p.r*2,p.r); ctx.restore(); });
+    parts = parts.filter(p => p.life>0 && p.y<innerHeight+40);
+    raf = parts.length ? requestAnimationFrame(tick) : 0;
+    if (!raf) ctx.clearRect(0,0,innerWidth,innerHeight);
+  }
+})();
+</script>
+</body>
+</html>
