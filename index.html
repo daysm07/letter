@@ -40,14 +40,8 @@ img{max-width:100%}
       </svg>
       <div class="flap" aria-hidden="true"><svg viewBox="0 0 300 128" preserveAspectRatio="none"><path d="M0 0H300L166 122Q150 132 134 122Z" fill="#EFE1CC" stroke="#E2CFB2" stroke-width="1.5"/></svg></div>
       <span class="to" aria-hidden="true">кому: каждому из нас</span>
-      <button class="seal" id="seal" type="button" aria-describedby="stop">2027</button>
+      <button class="seal" id="seal" type="button" >2027</button>
     </div>
-    <div class="stop" id="stop" role="status" aria-live="polite" hidden>
-      <b class="stop-title">Стоп, ещё рано!</b>
-      <p class="stop-text">Письмо откроется только <span id="stop-day">27 ноября</span>. А пока пришли нам свои самые смешные фото, они окажутся в письме.</p>
-      <a class="stop-btn" id="stop-wa" href="#" target="_blank" rel="noopener">Отправить фото в WhatsApp</a>
-    </div>
-
     <p class="hand" id="when">вскроем совсем скоро</p>
     <div class="count" id="count" hidden>
       <div><b id="cd-d">0</b><span>дней</span></div>
@@ -100,6 +94,16 @@ img{max-width:100%}
     <button class="ghost" id="close" type="button">Закрыть и запечатать обратно</button>
   </div>
 </div>
+<div class="stop-layer" id="stop-layer" hidden>
+  <div class="stop" id="stop" role="dialog" aria-modal="true" aria-labelledby="stop-title">
+    <button class="stop-x" id="stop-x" type="button" aria-label="Закрыть">×</button>
+    <span class="stop-hand">тсс…</span>
+    <b class="stop-title" id="stop-title">Стоп, ещё рано!</b>
+    <p class="stop-text">Письмо откроется только <span id="stop-day">27 ноября</span>. А пока пришли нам свои самые смешные фото, они окажутся в письме.</p>
+    <a class="stop-btn" id="stop-wa" href="#" target="_blank" rel="noopener">Отправить фото в WhatsApp</a>
+    <button class="stop-later" id="stop-later" type="button">Ладно, подожду</button>
+  </div>
+</div>
 <canvas id="fx" aria-hidden="true"></canvas>
 
 <script>
@@ -145,6 +149,29 @@ const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1_9_HBLAqbRLslua0Umo8n
   update(); setInterval(update, 30000);
 
   $('stop-day').textContent = fmtDay;
+  let stopFocus = null;
+  function showStop(from){
+    stopFocus = from;
+    const layer = $('stop-layer'), card = $('stop');
+    const r = from.getBoundingClientRect();
+    // карточка вылетает из печати
+    const dx = (r.left + r.width/2) - innerWidth/2, dy = (r.top + r.height/2) - innerHeight/2;
+    card.style.setProperty('--fx', dx + 'px'); card.style.setProperty('--fy', dy + 'px');
+    layer.hidden = false;
+    layer.classList.remove('show'); void layer.offsetWidth;
+    setTimeout(() => layer.classList.add('show'), reduce ? 0 : 280);
+    setTimeout(() => $('stop-wa').focus({preventScroll:true}), reduce ? 0 : 800);
+  }
+  function hideStop(){
+    const layer = $('stop-layer');
+    layer.classList.remove('show');
+    setTimeout(() => { layer.hidden = true; }, reduce ? 0 : 300);
+    if (stopFocus) stopFocus.focus({preventScroll:true});
+  }
+  $('stop-x').addEventListener('click', hideStop);
+  $('stop-later').addEventListener('click', hideStop);
+  $('stop-layer').addEventListener('click', e => { if (e.target.id === 'stop-layer') hideStop(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('stop-layer').hidden) hideStop(); });
   let ti = 0, tt, lastFocus = null;
 
   function openScene(){
@@ -169,8 +196,7 @@ const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1_9_HBLAqbRLslua0Umo8n
   $('seal').addEventListener('click', function(){
     if (isRevealed()) { openScene(); return; }
     this.classList.remove('shake'); void this.offsetWidth; this.classList.add('shake');
-    const st = $('stop'); st.hidden = false;
-    st.classList.remove('pop'); void st.offsetWidth; st.classList.add('pop');
+    showStop(this);
   });
 
   // Искры
