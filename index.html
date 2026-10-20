@@ -40,9 +40,13 @@ img{max-width:100%}
       </svg>
       <div class="flap" aria-hidden="true"><svg viewBox="0 0 300 128" preserveAspectRatio="none"><path d="M0 0H300L166 122Q150 132 134 122Z" fill="#EFE1CC" stroke="#E2CFB2" stroke-width="1.5"/></svg></div>
       <span class="to" aria-hidden="true">кому: каждому из нас</span>
-      <button class="seal" id="seal" type="button" aria-describedby="tease">2027</button>
+      <button class="seal" id="seal" type="button" aria-describedby="stop">2027</button>
     </div>
-    <p class="tease" id="tease" aria-live="polite"></p>
+    <div class="stop" id="stop" role="status" aria-live="polite" hidden>
+      <b class="stop-title">Стоп, ещё рано!</b>
+      <p class="stop-text">Письмо откроется только <span id="stop-day">27 ноября</span>. А пока пришли нам свои самые смешные фото, они окажутся в письме.</p>
+      <a class="stop-btn" id="stop-wa" href="#" target="_blank" rel="noopener">Отправить фото в WhatsApp</a>
+    </div>
 
     <p class="hand" id="when">вскроем совсем скоро</p>
     <div class="count" id="count" hidden>
@@ -100,7 +104,7 @@ img{max-width:100%}
 
 <script>
 // ▼ Настройки
-const REVEAL_AT = '2026-10-27T10:00:00+05:00';   // когда письмо можно вскрыть
+const REVEAL_AT = '2026-11-27T10:00:00+05:00';   // когда письмо можно вскрыть
 const WA_NUMBER = '77786115910';                  // номер WhatsApp в международном формате, без +
 const WA_TEXT = 'Привет! Скидываю фото для новогоднего письма 📸';
 const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1_9_HBLAqbRLslua0Umo8nNQ_w0v2KICPDftwHR-ue5Q/edit?gid=852570194#gid=852570194';
@@ -114,6 +118,7 @@ const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1_9_HBLAqbRLslua0Umo8n
   const preview = location.hash === '#preview';
   const isRevealed = () => preview || Date.now() >= reveal;
 
+  $('stop-wa').href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(WA_TEXT);
   $('wa').href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(WA_TEXT);
   $('sheet-cta').href = SHEET_URL;
   $('banner-link').href = SHEET_URL;
@@ -139,7 +144,7 @@ const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1_9_HBLAqbRLslua0Umo8n
   }
   update(); setInterval(update, 30000);
 
-  const teases = ['Ещё рано! Письмо вскроем ' + fmtDay + '.', 'Печать держится крепко.', 'Тсс. Терпение, коллега.', 'Подсказка: листай вниз, там можно помочь.'];
+  $('stop-day').textContent = fmtDay;
   let ti = 0, tt, lastFocus = null;
 
   function openScene(){
@@ -164,8 +169,8 @@ const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1_9_HBLAqbRLslua0Umo8n
   $('seal').addEventListener('click', function(){
     if (isRevealed()) { openScene(); return; }
     this.classList.remove('shake'); void this.offsetWidth; this.classList.add('shake');
-    const t = $('tease'); t.textContent = teases[ti++ % teases.length]; t.classList.add('on');
-    clearTimeout(tt); tt = setTimeout(() => t.classList.remove('on'), 3200);
+    const st = $('stop'); st.hidden = false;
+    st.classList.remove('pop'); void st.offsetWidth; st.classList.add('pop');
   });
 
   // Искры
