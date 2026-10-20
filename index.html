@@ -8,6 +8,7 @@
 <meta property="og:title" content="Вам письмо">
 <meta property="og:description" content="Тсс, это письмо для всей команды. Вскроем 27 октября.">
 <meta name="theme-color" content="#D42A20">
+<meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Caveat:wght@600;700&family=Golos+Text:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="style.css">
@@ -144,7 +145,7 @@ const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1_9_HBLAqbRLslua0Umo8n
     }
     const ms = reveal - Date.now();
     const d = Math.floor(ms/864e5), h = Math.floor(ms%864e5/36e5), m = Math.floor(ms%36e5/6e4);
-    $('when').textContent = 'вскроем через ' + d + ' ' + plural(d,'день','дня','дней');
+    $('when').textContent = d > 0 ? 'вскроем через ' + d + ' ' + plural(d,'день','дня','дней') : (h > 0 ? 'вскроем через ' + h + ' ' + plural(h,'час','часа','часов') : 'вот-вот вскроем!');
     $('count').hidden = false;
     $('cd-d').textContent = d; $('cd-h').textContent = h; $('cd-m').textContent = m;
     $('seal').setAttribute('aria-label', 'Печать письма. Письмо пока запечатано');
